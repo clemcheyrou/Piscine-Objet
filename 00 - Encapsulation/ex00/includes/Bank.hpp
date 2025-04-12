@@ -11,12 +11,18 @@ class Bank
 {
 	private:
 		int _liquidity;
-		vector<Account *> clientAccounts;
+		vector<Account *> _clientAccounts;
 
 	public:
 		Bank(void);
 		~Bank(void);
-		Account* createAccount(int id, double value);
+		Account* createAccount(int id, int value);
+		void deleteAccount(int id);
+		void deposit(Account* account, int value);
+		void withdraw(Account* account, int value);
+		bool loanToAccount(int id, int value);
+
+		friend ostream& operator<<(ostream& os, const Bank& bank);
 };
 
 #endif
