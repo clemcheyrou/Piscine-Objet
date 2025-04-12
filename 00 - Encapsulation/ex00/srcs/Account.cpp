@@ -1,22 +1,20 @@
 #include "../includes/Account.hpp"
-#include "Account.hpp"
 
 set<int> Account::used_ids;
 
-Account::Account(int id, double value) : _id(id), _value(value)
+Account::Account(int id, int value) : _id(id), _value(value)
 {
 	if (used_ids.count(id)) {
 		throw invalid_argument("id already used");
 	}
 	used_ids.insert(id);
-	cout << "Account " << _id << " has been created with the value" << _value << endl;
-	return;
+	cout << GREEN << "Account " << _id << " has been created with the value " << _value << RESET << endl;
 }
 
 Account::~Account(void)
 {
 	used_ids.erase(_id);
-	cout << "Account " << _id << " has been deleted" << endl;
+	cout << RED << "Account " << _id << " has been deleted" << RESET << endl;
 	return;
 }
 
