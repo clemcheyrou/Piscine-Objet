@@ -4,10 +4,10 @@ Graph::Graph(): _maxX(0), _maxY(0) {}
 Graph::~Graph() {}
 
 void Graph::addPoint(const Vector2& point) {
-	if (point.x > _maxX)
-		_maxX = static_cast<int>(point.x);
-	if (point.y > _maxY)
-		_maxY = static_cast<int>(point.y);	
+	if (point.getX() > _maxX)
+		_maxX = static_cast<int>(point.getX());
+	if (point.getY() > _maxY)
+		_maxY = static_cast<int>(point.getY());	
 	points.push_back(point);
 }
 
@@ -20,8 +20,8 @@ void Graph::displayPoints() const {
     }
 
     for (std::vector<Vector2>::const_iterator point = points.begin(); point != points.end(); ++point) {
-        int x = static_cast<int>(point->x);
-        int y = static_cast<int>(point->y);
+        int x = static_cast<int>(point->getX());
+        int y = static_cast<int>(point->getY());
 
         if (x >= 0 && x <= _maxX && y >= 0 && y <= _maxY)
             grid[y][x] = 'X';

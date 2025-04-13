@@ -13,12 +13,17 @@ using namespace std;
 
 class Vector2
 {
-	public:
-		float x;
-		float y;
+	private:
+	    float x;
+	    float y;
 
+	public:
 		Vector2(float x, float y);
 		~Vector2();
+		float getX() const;
+    	void setX(float val);
+    	float getY() const;
+    	void setY(float val);
 };
 
 #endif
